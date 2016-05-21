@@ -9,6 +9,10 @@ angular.module('beerTime', ['firebase', 'ngRoute'])
           templateUrl: 'views/scoreboard.html',
           controller: 'ScoreBoardCtrl'
       })
+			.when('/beer', {
+				templateUrl: 'views/beers.html',
+				controller: 'BeerCtrl'
+			})
       .otherwise({
           redirectTo: '/'
       });
