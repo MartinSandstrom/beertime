@@ -3,34 +3,28 @@
   <head>
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
       <link rel="stylesheet" href="dist/style.min.css">
       <title></title>
   </head>
-	<body ng-app="beerTime" ng-controller="SampleCtrl">
-		<div id="fb-root">
+	<body ng-app="beerTime">
 
-			<ul>
-		    <li ng-repeat="message in messages">
-		      <!-- edit a message -->
-		      <input ng-model="message.text" ng-change="messages.$save(message)" />
-		      <!-- delete a message -->
-		      <button ng-click="messages.$remove(message)">Delete Message</button>
-		    </li>
-		  </ul>
-		  <!-- push a new message onto the array -->
-		  <form ng-submit="addMessage()">
-		    <input ng-model="newMessageText" />
-		    <button type="submit">Add Message</button>
-		  </form>
+
+		<div class="container">
+			<div ng-view=""></div>
 		</div>
 
 			<script src="http://connect.facebook.net/en_US/all.js"></script>
 			<!-- AngularJS -->
-			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+
+			<script src="vendor/ngRoute.js"></script>
+
 			<!-- Firebase -->
 			<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
 			<!-- AngularFire -->
 			<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
-      <script src="dist/_main.js"></script>
+      <script src="dist/app.js"></script>
   </body>
 </html>
