@@ -1,0 +1,1 @@
+var app=angular.module("sampleApp",["firebase"]);app.controller("SampleCtrl",["$scope","$firebaseArray",function($scope,$firebaseArray){var ref=new Firebase("https://beertime.firebaseio.com/data");$scope.messages=$firebaseArray(ref),$scope.addMessage=function(){$scope.messages.$add({text:$scope.newMessageText})}}]),console.log("hi from testfile    here is some more and green ");
