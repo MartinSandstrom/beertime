@@ -9,12 +9,6 @@ angular.module('beerTime').controller('LoginCtrl', ['$scope', 'LoginService', '$
 	}
 
 	$scope.logIn = function() {
-
-		var isLoggedIn = LoginService.logInPrompt(ref);
-		if(isLoggedIn) {
-				$location.path('scoreboard');
-		} else {
-				console.log('failed to login');
-		}
+		LoginService.logInPrompt(ref);
 	}
 }]);

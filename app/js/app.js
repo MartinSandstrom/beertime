@@ -2,8 +2,8 @@ angular.module('beerTime', ['firebase', 'ngRoute'])
   .config(function ($routeProvider) {
       $routeProvider
       .when('/', {
-          templateUrl: 'views/login.html',
-          controller: 'LoginCtrl'
+          templateUrl: 'views/landingpage.html',
+          controller: ''
       })
       .when('/scoreboard', {
           templateUrl: 'views/scoreboard.html',

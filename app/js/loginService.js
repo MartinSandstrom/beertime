@@ -1,15 +1,13 @@
-angular.module('beerTime').factory('LoginService', function(){
+angular.module('beerTime').factory('LoginService', ['$location', function($location){
 	return {
-		logInPrompt: function() {
-			ref.authWithOAuthPopup("google", function(error, authData) {
+		logInPrompt: function(ref) {
+			return ref.authWithOAuthPopup("google", function(error, authData) {
 				if (error) {
 					console.log("Login Failed!", error);
-					return false;
 				} else {
-					AuthService.setAuthData(authData);
-					return true;
+					console.log('login success');
 				}
 			});
 		}
 	}
-});
+}]);
