@@ -9,6 +9,13 @@ var concat = require('gulp-concat');
 var minifyCSS = require('gulp-minify-css');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
+var ghPages = require('gulp-gh-pages');
+
+gulp.task('deploy', function() {
+  return gulp.src('./app/**/*')
+    .pipe(ghPages());
+});
+
 
 gulp.task('compress-js', function() {
   return gulp.src('./app/js/**/*.js')
