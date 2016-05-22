@@ -7,6 +7,6 @@ angular.module('beerTime').controller('ScoreBoardCtrl', ['$scope', '$firebaseArr
 		$location.path('/');
 	}
 
-	$scope.messages = $firebaseArray(ref);
+	$scope.beers = $firebaseArray(ref);
 
 }]);

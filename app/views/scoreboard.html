@@ -1,8 +1,6 @@
 <ul ng-controller="ScoreBoardCtrl">
-	<li ng-repeat="message in messages">
+	<li ng-repeat="beer in beers ">
 		<!-- edit a message -->
-		<input ng-model="message.text" ng-change="messages.$save(message)" />
-		<!-- delete a message -->
-		<button ng-click="messages.$remove(message)">Delete Message</button>
+		<h1> test {{ beer.userName }} - {{ beer.Value }}</h1>
 	</li>
 </ul>

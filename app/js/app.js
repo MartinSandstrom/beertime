@@ -1,3 +1,4 @@
+
 angular.module('beerTime', ['firebase', 'ngRoute'])
   .config(function ($routeProvider) {
       $routeProvider
