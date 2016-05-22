@@ -1,6 +1,6 @@
 <ul ng-controller="ScoreBoardCtrl">
-	<li ng-repeat="beer in beers ">
+	<li ng-repeat="beer in beers | orderBy:'-total'">
 		<!-- edit a message -->
-		<h1> test {{ beer.userName }} - {{ beer.Value }}</h1>
+		<h1> {{ beer.userName }} - {{ beer.total }}</h1>
 	</li>
 </ul>
