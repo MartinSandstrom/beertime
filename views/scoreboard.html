@@ -1,6 +1,14 @@
-<ul ng-controller="ScoreBoardCtrl">
-	<li ng-repeat="beer in beers | orderBy:'-total'">
+<div ng-controller="ScoreBoardCtrl">
+	<div ng-repeat="user in users | orderBy:'-total'" ng-class="{'jumbotron':$first}">
 		<!-- edit a message -->
-		<h1> {{ beer.userName }} - {{ beer.total }}</h1>
-	</li>
-</ul>
+		<div class="media">
+	    <span class="media-left">
+				<img width="100" heigh="100" src="{{user.imageURL}}" alt="..." class="img-rounded">
+	    </span>
+	    <div class="media-body">
+				<h2> {{ user.userName }} - {{ user.total }}  </h2>
+				<p>Beer: {{ user.beer }} Wine: {{ user.wine }}</p>
+	    </div>
+		</div>
+	</div>
+</div>
