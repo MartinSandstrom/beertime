@@ -1,5 +1,5 @@
 <div ng-controller="ScoreBoardCtrl">
-	<div ng-repeat="user in users | orderBy:'-total'" ng-class="{'jumbotron':$first}">
+	<div class="scoreboard-user" ng-repeat="user in users | orderBy:'-total'" ng-class="{'jumbotron':$first}">
 		<!-- edit a message -->
 		<div class="media">
 	    <span class="media-left">
