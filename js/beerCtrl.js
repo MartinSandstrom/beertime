@@ -13,7 +13,11 @@ angular.module('beerTime').controller('BeerCtrl', ['$scope', 'LoginService', '$l
 			logInPrompt();
 			return;
 		}
-		var userId = auth.google.id;
+		console.log(auth);
+		var userId;
+		if(auth.provider === 'google') userId = auth.google.id;
+		if(auth.provider === 'facebook') userId = auth.facebook.id;
+
 
 		if(isInList(userId)){
 			addDrink(type, userId);
@@ -31,14 +35,10 @@ angular.module('beerTime').controller('BeerCtrl', ['$scope', 'LoginService', '$l
 			timestamp: new Date().getTime()
 		};
 		user[type] = user[type] + 1;
-
-		if(auth.provider === 'google') {
-			user.userName = auth.google.displayName;
-			user.id = auth.google.id;
-			user.imageURL = auth.google.profileImageURL;
-		} else if(auth.provider === 'github') {
-			//TODO
-		}
+		var provider = auth.provider;
+		user.userName = auth[provider].displayName;
+		user.id = auth[provider].id;
+		user.imageURL = auth[provider].profileImageURL;
 		users.$add(user);
 		return user;
 	}
