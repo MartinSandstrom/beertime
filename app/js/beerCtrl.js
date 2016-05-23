@@ -18,17 +18,18 @@ angular.module('beerTime').controller('BeerCtrl', ['$scope', 'LoginService', '$l
 		if(isInList(userId)){
 			addDrink(type, userId);
 		} else {
-			var user = createNewUser();
+			var user = createNewUser(type);
 			addDrink(type, user.id);
 		}
 	}
 
-	function createNewUser() {
+	function createNewUser(type) {
 		var user = {
 			beer: 0,
 			wine: 0,
-			total: 0
+			total: 1
 		};
+		user[type] = user[type] + 1;
 
 		if(auth.provider === 'google') {
 			user.userName = auth.google.displayName;
