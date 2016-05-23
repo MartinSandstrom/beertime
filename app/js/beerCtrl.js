@@ -57,7 +57,7 @@ angular.module('beerTime').controller('BeerCtrl', ['$scope', 'LoginService', '$l
 		angular.forEach(users, (function(key){
 			if(key.id === id) {
 				var fiveMinutesLate = key.timestamp + (5 * 60 * 1000);
-				if(key.userName.toUpperCase().indexOf('ARVID' === -1) && now < fiveMinutesLate) {
+				if(key.userName.toUpperCase().indexOf('ARVID') === -1 && now < fiveMinutesLate) {
 					swal("Oops...", "Slow down the drinking, only Arvid can drink that fast!", "error");
 					return false;
 				}
