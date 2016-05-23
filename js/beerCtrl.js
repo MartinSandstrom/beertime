@@ -13,7 +13,6 @@ angular.module('beerTime').controller('BeerCtrl', ['$scope', 'LoginService', '$l
 			logInPrompt();
 			return;
 		}
-		console.log(auth);
 		var userId;
 		if(auth.provider === 'google') userId = auth.google.id;
 		if(auth.provider === 'facebook') userId = auth.facebook.id;
