@@ -27,7 +27,8 @@ angular.module('beerTime').controller('BeerCtrl', ['$scope', 'LoginService', '$l
 		var user = {
 			beer: 0,
 			wine: 0,
-			total: 1
+			total: 1,
+			timestamp: new Date().getTime()
 		};
 		user[type] = user[type] + 1;
 
@@ -53,12 +54,19 @@ angular.module('beerTime').controller('BeerCtrl', ['$scope', 'LoginService', '$l
 	}
 
 	function addDrink(type, id){
+		var now = new Date().getTime();
 		angular.forEach(users, (function(key){
-				if(key.id === id) {
-					key.total = key.total + 1;
-					key[type] = key[type] + 1;
-					users.$save(key);
+			if(key.id === id) {
+				var fiveMinutesLate = key.timestamp + (5 * 60 * 1000);
+				if(now < fiveMinutesLate) {
+					console.log('Slow down the drinking bro!');
+					return false;
 				}
+				key.total = key.total + 1;
+				key[type] = key[type] + 1;
+				key.timestamp = new Date().getTime();
+				users.$save(key);
+			}
 		}));
 	}
 
