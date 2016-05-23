@@ -3,7 +3,6 @@ angular.module('beerTime').controller('BeerCtrl', ['$scope', 'LoginService', '$l
 	var ref = new Firebase('https://beertime.firebaseio.com/data');
 	var users = $firebaseArray(ref);
 
-
 	var auth = ref.getAuth();
 	if(!auth) {
 		$location.path('/');
@@ -14,32 +13,34 @@ angular.module('beerTime').controller('BeerCtrl', ['$scope', 'LoginService', '$l
 			logInPrompt();
 			return;
 		}
-		var user;
+		var userId = auth.google.id;
+
+		if(isInList(userId)){
+			addDrink(type, userId);
+		} else {
+			var user = createNewUser(type);
+			addDrink(type, user.id);
+		}
+	}
+
+	function createNewUser(type) {
+		var user = {
+			beer: 0,
+			wine: 0,
+			total: 1
+		};
+		user[type] = user[type] + 1;
 
 		if(auth.provider === 'google') {
-			user = {
-				userName: auth.google.displayName,
-				id: auth.google.id,
-				imageURL: auth.google.profileImageURL,
-			};
+			user.userName = auth.google.displayName;
+			user.id = auth.google.id;
+			user.imageURL = auth.google.profileImageURL;
+		} else if(auth.provider === 'github') {
+			//TODO
 		}
-
-		if(isInList(user.id)){
-			if(type === 'beer') addBeer(user.id);
-			else if(type === 'wine') addWine(user.id);
-		} else {
-			user.total = 1;
-			if(type === 'beer') {
-				user.beer = 1;
-				user.wine = 0;
-			}
-			else if(type === 'wine') {
-				user.beer = 0;
-				user.wine = 1;
-			}
-			users.$add(user);
-		}
-	};
+		users.$add(user);
+		return user;
+	}
 
 	function isInList(id) {
 		var returnValue = false;
@@ -51,25 +52,14 @@ angular.module('beerTime').controller('BeerCtrl', ['$scope', 'LoginService', '$l
 		return returnValue;
 	}
 
-	function addWine(id) {
+	function addDrink(type, id){
 		angular.forEach(users, (function(key){
 				if(key.id === id) {
-					key.wine = key.wine + 1;
 					key.total = key.total + 1;
-					users.$save(key).then(function(ref) {
-					});
+					key[type] = key[type] + 1;
+					users.$save(key);
 				}
 		}));
 	}
 
-	function addBeer(id) {
-		angular.forEach(users, (function(key){
-				if(key.id === id) {
-					key.beer = key.beer + 1;
-					key.total = key.total + 1;
-					users.$save(key).then(function(ref) {
-					});
-				}
-		}));
-	}
 }]);
