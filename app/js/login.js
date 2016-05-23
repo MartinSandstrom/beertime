@@ -8,7 +8,7 @@ angular.module('beerTime').controller('LoginCtrl', ['$scope', 'LoginService', '$
 		$location.path('scoreboard');
 	}
 
-	$scope.logIn = function() {
-		LoginService.logInPrompt(ref);
+	$scope.logIn = function(provider) {
+		LoginService.logInPrompt(ref, provider);
 	}
 }]);
