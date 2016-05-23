@@ -59,13 +59,15 @@ angular.module('beerTime').controller('BeerCtrl', ['$scope', 'LoginService', '$l
 			if(key.id === id) {
 				var fiveMinutesLate = key.timestamp + (5 * 60 * 1000);
 				if(now < fiveMinutesLate) {
-					console.log('Slow down the drinking bro!');
+					swal("Oops...", "Slow down the drinking, only Arvid can drink that fast!", "error");
 					return false;
 				}
 				key.total = key.total + 1;
 				key[type] = key[type] + 1;
 				key.timestamp = new Date().getTime();
-				users.$save(key);
+				users.$save(key).then(function(){
+					swal("Drink registrated")
+				});
 			}
 		}));
 	}
