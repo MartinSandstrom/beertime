@@ -1,3 +1,3 @@
-# blueprint-project
+# beertime
 
-Blueprint with gulp tasks for Sass and minifying + concatinating of js files. 
+Preview: http://martinsandstrom.github.io/beertime/#/scoreboard
