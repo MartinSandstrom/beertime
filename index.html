@@ -1,40 +1,58 @@
 <!doctype html>
 <html lang="en">
-  <head>
-      <meta charset="utf-8">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-			<link rel="stylesheet" href="vendor/bootstrap.min.css">
-			<link rel="stylesheet" href="vendor/sweetalert.css">
-			<link rel="stylesheet" href="vendor/fontawesome.min.css">
-			<link rel="stylesheet" href="dist/style.min.css">
-      <title></title>
-  </head>
-	<body ng-app="beerTime">
-
-			<div class="container">
-		<div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li><a ng-href="#/scoreboard">Scoreboard</a></li>
-          <li><a ng-href="#/beer">Drink</a></li>
-          <li data-ng-controller="LoginCtrl"><a href="#/login">LogIn</a></li>
-        </ul>
-        <h3 class="text-muted">Wokkiliccious</h3>
-      </div>
-
-			<div ng-view=""></div>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="vendor/bootstrap.min.css">
+	<link rel="stylesheet" href="vendor/sweetalert.css">
+	<link rel="stylesheet" href="vendor/fontawesome.min.css">
+	<link rel="stylesheet" href="dist/style.min.css">
+	<title></title>
+</head>
+<body ng-app="beerTime">
+	<nav class="navbar navbar-default navbar-fixed-top" id="main-nav">
+	  <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  <a class="navbar-brand" href="#">Wokkiliccious</a>
 		</div>
 
-			<script src="http://connect.facebook.net/en_US/all.js"></script>
-			<!-- AngularJS -->
-			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		  <ul class="nav navbar-nav navbar-right" data-ng-controller="LoginCtrl">
 
-			<script src="vendor/ngRoute.js"></script>
-			<script src="vendor/sweetalert.min.js"></script>
+  				<li class="hidden-xs"><a ng-href="#/scoreboard">Scoreboard</a></li>
+  				<li class="hidden-xs"><a ng-href="#/beer">Drink</a></li>
+				<li class="hidden-xs"><a href="#/login">LogIn</a></li>
+				<li class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse"><a ng-href="#/scoreboard">Scoreboard</a></li>
+				<li class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse"><a ng-href="#/beer">Drink</a></li>
+				<li class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse"><a href="#/login">LogIn</a></li>
+		  </ul>
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
 
-			<!-- Firebase -->
-			<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
-			<!-- AngularFire -->
-			<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
-      <script src="dist/app.js"></script>
-  </body>
+	<div class="container">
+		<div ng-view=""></div>
+	</div>
+	<!-- Latest compiled and minified JavaScript -->
+
+	<script src="vendor/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<!-- AngularJS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script src="vendor/ngRoute.js"></script>
+	<script src="vendor/sweetalert.min.js"></script>
+	<!-- Firebase -->
+	<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+	<!-- AngularFire -->
+	<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+	<script src="dist/app.js"></script>
+</body>
 </html>
