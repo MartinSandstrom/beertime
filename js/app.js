@@ -21,4 +21,4 @@ angular.module('beerTime', ['firebase', 'ngRoute'])
 	.otherwise({
 		redirectTo: '/'
 	});
-})
+});
