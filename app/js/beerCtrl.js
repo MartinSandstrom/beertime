@@ -1,16 +1,17 @@
 
-angular.module('beerTime').controller('BeerCtrl', ['$scope', 'LoginService', '$location', '$firebaseArray', function($scope, LoginService, $location, $firebaseArray) {
+angular.module('beerTime').controller('BeerCtrl', ['$scope', 'LoginService', '$location', '$firebaseArray', function ($scope, LoginService, $location, $firebaseArray) {
+
+	'use strict';
 	var ref = new Firebase('https://beertime.firebaseio.com/data');
 	var users = $firebaseArray(ref);
-
 	var auth = ref.getAuth();
-	if(!auth) {
+
+	if (!auth) {
 		$location.path('/login');
 	}
 
-	$scope.addBeer = function(type) {
-		if(!auth){
-			logInPrompt();
+	$scope.addBeer = function (type) {
+		if (!auth){
 			return;
 		}
 
@@ -18,13 +19,13 @@ angular.module('beerTime').controller('BeerCtrl', ['$scope', 'LoginService', '$l
 		var userId = auth[provider].id;
 
 
-		if(isInList(userId)){
+		if (isInList(userId)){
 			addDrink(type, userId);
 		} else {
 			var user = createNewUser(type);
 			addDrink(type, user.id);
 		}
-	}
+	};
 
 	function createNewUser(type) {
 		var user = {
@@ -65,7 +66,7 @@ angular.module('beerTime').controller('BeerCtrl', ['$scope', 'LoginService', '$l
 				key[type] = key[type] + 1;
 				key.timestamp = new Date().getTime();
 				users.$save(key).then(function(){
-					swal("Drink registrated")
+					swal("Drink registrated");
 				});
 			}
 		}));

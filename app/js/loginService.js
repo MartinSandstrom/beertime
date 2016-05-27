@@ -9,5 +9,5 @@ angular.module('beerTime').factory('LoginService', ['$location', function($locat
 				}
 			});
 		}
-	}
+	};
 }]);
