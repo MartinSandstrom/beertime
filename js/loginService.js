@@ -19,6 +19,7 @@ angular.module('beerTime').factory('LoginService', ['$location', function($locat
 			});
 		},
 		logInRedirect: function(ref, provider) {
+			alert('här');
 			ref.authWithOAuthRedirect(provider, function(error, authData) {
 				if (error) {
 					alert(error);
