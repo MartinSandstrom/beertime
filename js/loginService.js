@@ -4,13 +4,13 @@ angular.module('beerTime').factory('LoginService', ['$location', function($locat
 			return ref.authWithOAuthPopup(provider, function(error, authData) {
 				if (error) {
 					alert('innan allt skit');
-					if (error.indexOf('TRANSPORT_UNAVAILABLE') > -1) {
+					if (error.toString().indexOf('TRANSPORT_UNAVAILABLE') > -1) {
 						alert('inne');
 						alert(error);
 						this.logInRedirect(ref, provider);
 					}
 
-						alert('ute');
+					alert('ute');
 					alert(error);
 					console.log("Login Failed!", error);
 				} else {
