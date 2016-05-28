@@ -3,10 +3,9 @@ angular.module('beerTime').factory('LoginService', ['$location', function($locat
 		logInPrompt: function(ref, provider) {
 			return ref.authWithOAuthPopup(provider, function(error, authData) {
 				if (error) {
-					alert(error);
-					this.logInRedirect(ref, provider);
-
-
+					if (error.indexOf('TRANSPORT_UNAVAILABLE') > -1) {
+						this.logInRedirect(ref, provider);
+					}
 					console.log("Login Failed!", error);
 				} else {
 					$location.path('beer');
@@ -16,6 +15,7 @@ angular.module('beerTime').factory('LoginService', ['$location', function($locat
 		logInRedirect: function(ref, provider) {
 			ref.authWithOAuthRedirect(provider, function(error, authData) {
 				if (error) {
+					alert(error);
 					console.log("Login Failed!", error);
 				} else {
 					$location.path('beer');
