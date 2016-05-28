@@ -7,7 +7,14 @@ angular.module('beerTime').factory('LoginService', ['$location', function($locat
 					if (error.toString().indexOf('TRANSPORT_UNAVAILABLE') > -1) {
 						alert('inne');
 						alert(error);
-						this.logInRedirect(ref, provider);
+						ref.authWithOAuthRedirect(provider, function(error, authData) {
+							if (error) {
+								alert(error);
+								console.log("Login Failed!", error);
+							} else {
+								$location.path('beer');
+							}
+						});
 					}
 
 					alert('ute');
@@ -20,14 +27,7 @@ angular.module('beerTime').factory('LoginService', ['$location', function($locat
 		},
 		logInRedirect: function(ref, provider) {
 			alert('här');
-			ref.authWithOAuthRedirect(provider, function(error, authData) {
-				if (error) {
-					alert(error);
-					console.log("Login Failed!", error);
-				} else {
-					$location.path('beer');
-				}
-			});
+
 		}
 	};
 }]);
