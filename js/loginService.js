@@ -3,31 +3,21 @@ angular.module('beerTime').factory('LoginService', ['$location', function($locat
 		logInPrompt: function(ref, provider) {
 			return ref.authWithOAuthPopup(provider, function(error, authData) {
 				if (error) {
-					alert('innan allt skit');
+					console.log(error);
 					if (error.toString().indexOf('TRANSPORT_UNAVAILABLE') > -1) {
-						alert('inne');
-						alert(error);
 						ref.authWithOAuthRedirect(provider, function(error, authData) {
 							if (error) {
-								alert(error);
 								console.log("Login Failed!", error);
 							} else {
 								$location.path('beer');
 							}
 						});
 					}
-
-					alert('ute');
-					alert(error);
 					console.log("Login Failed!", error);
 				} else {
-					$location.path('beer');
+					//$location.path('beer');
 				}
 			});
-		},
-		logInRedirect: function(ref, provider) {
-			alert('här');
-
 		}
 	};
 }]);

@@ -7,6 +7,7 @@ angular.module('beerTime').controller('BeerCtrl', ['$scope', 'LoginService', '$l
 	var auth = ref.getAuth();
 
 	if (!auth) {
+		console.log(auth);
 		$location.path('/login');
 	}
 
