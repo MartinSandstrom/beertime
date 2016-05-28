@@ -5,7 +5,7 @@ angular.module('beerTime').factory('LoginService', ['$location', function($locat
 				if (error) {
 					console.log("Login Failed!", error);
 				} else {
-					console.log('login success');
+					$location.path('beer');
 				}
 			});
 		}
