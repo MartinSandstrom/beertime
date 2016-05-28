@@ -3,6 +3,7 @@ angular.module('beerTime').factory('LoginService', ['$location', function($locat
 		logInPrompt: function(ref, provider) {
 			return ref.authWithOAuthPopup(provider, function(error, authData) {
 				if (error) {
+					alert('innan allt skit');
 					if (error.indexOf('TRANSPORT_UNAVAILABLE') > -1) {
 						alert(error, 'inne');
 						this.logInRedirect(ref, provider);
