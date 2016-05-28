@@ -6,7 +6,7 @@
 				<img src="{{user.imageURL}}" alt="..." class="img-rounded profile-image">
 	    </span>
 	    <div class="media-body">
-				<h2> {{ user.userName }} - {{ user.total }}  </h2>
+				<h2> <span class="hidden-xs">{{ user.userName }}</span><span class="visible-xs inline-block">{{ user.userName.split(' ')[0] }}</span> - {{ user.total }}  </h2>
 				<p class="hidden-xs">With a record of <strong>{{ user.beer }}</strong> beer(s) and <strong>{{ user.wine }}</strong> glasses of wine</p>
 	    </div>
 		</div>
