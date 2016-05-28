@@ -5,7 +5,7 @@ angular.module('beerTime').factory('LoginService', ['$location', function($locat
 				if (error) {
 					alert('innan allt skit');
 					if (error.indexOf('TRANSPORT_UNAVAILABLE') > -1) {
-						alert(error, 'inne');
+						alert(error);
 						this.logInRedirect(ref, provider);
 					}
 					alert(error);
