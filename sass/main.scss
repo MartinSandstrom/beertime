@@ -1,60 +1,66 @@
-body{
-	margin-top: 70px;
+body {
+    margin-top: 70px;
 }
 
-.header{
-	margin-bottom: 50px;
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
 }
 
-.user-info{
-	margin-left: 20px;
+.header {
+    margin-bottom: 50px;
 }
 
-.drink-button{
+.user-info {
+    margin-left: 20px;
+}
+
+.drink-button {
     width: 100%;
     height: 70px;
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
-.media-body{
-	padding-left: 20px;
+.media-body {
+    padding-left: 20px;
 }
 
-.scoreboard-user{
-	margin-bottom: 10px;
+.scoreboard-user {
+    margin-bottom: 10px;
 }
 
-.profile-image{
-	width: 100px;
-	height: 100px;
+.profile-image {
+    width: 100px;
+    height: 100px;
 }
 
-.login-btn{
+.login-btn {
     width: 100%;
     height: 40px;
-	margin-bottom: 20px;
-	color: white;
+    margin-bottom: 20px;
+    color: white;
 }
 
-.google-login{
-	background: #DD4B39;
-	&:hover{
-		background: #D74230;
-	}
+.google-login {
+    background: #DD4B39;
+
+    &:hover {
+        background: #D74230;
+    }
 }
 
+.github-login {
+    background: black;
+    color: white;
 
-.github-login{
-	background: black;
-	color: white;
-	&:hover{
-		background: #545454;
-	}
+    &:hover {
+        background: #545454;
+    }
 }
 
-.facebook-login{
-	background: #3B5998;
-	&:hover{
-		background: #355088;
-	}
+.facebook-login {
+    background: #3B5998;
+
+    &:hover {
+        background: #355088;
+    }
 }
